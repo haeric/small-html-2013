@@ -2,16 +2,16 @@
 <script>
     c = I.getContext('2d');
     setInterval(function () {
-    	c.fillRect(b=0, y=0, 640, q=480);
+    	c.fillRect(b=0, y=0, q=640, 480);
     	
     	for (; y++ < q;)
-        for (i = -1; i < 5;) {
+        for (i = 0; i < 6;) {
 
             a=b;
-            b=Math.sin((t+y)/q+(i+1)*1.57)*100;
-            c.fillStyle = 'ff0f000'.substr(i,3);
+            b=Math.sin((t+y)/q+i*1.57)*100;
+            c.fillStyle = '0ff0f000'.substr(i,3);
 
-    		if (i++ < 4 && a < b) 
+    		if (i++ < 5 && a < b) 
                 c.fillRect(320+a, y, b-a, 1);
     	}
     	t++;
