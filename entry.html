@@ -1,22 +1,17 @@
-<canvas id="canvas" width=640 height=480></canvas>
+<canvas id="I" width=640 height=480></canvas>
 <script>
-    canvas = document.getElementById('canvas');
-    ctx = canvas.getContext('2d');
-
-    t=0;
+    c = I.getContext('2d');
     setInterval(function () {
 
-    	ctx.putImageData(ctx.getImageData(0, 1, 640, 479), 0, 0);
+    	c.putImageData(c.getImageData(0, 1, 640, 479), 0, 0);
 
-    	ctx.fillStyle = '000';
-    	ctx.fillRect(0, 479, 640, 1);
+    	c.fillRect(0, 479, 640, 1);
 
-    	c = ['00f', '0f0', 'f00', 'ff0'];
-    	f=function(i){return 300+Math.sin(t/500+i*Math.PI/2)*100};
-    	for (i=0; i < 4; i++) {
-    		ctx.fillStyle = c[i];
-    		if (f(i) < f(i+1)) ctx.fillRect(f(i), 479, f(i+1)-f(i), 1);
+    	f=function(i){return 300+Math.sin(t/500+i*1.6)*100};
+    	for (i=0; i < 5; i++) {
+    		c.fillStyle = ['00f', '0f0', 'f00', 'ff0', '000'][i];
+    		if (i<4&&f(i) < f(i+1)) c.fillRect(f(i), 479, f(i+1)-f(i), 1);
     	}
     	t++;
-	}, 1);
+	}, t=0)
 </script>
