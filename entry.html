@@ -2,18 +2,18 @@
 <script>
     c = I.getContext('2d');
     setInterval(function () {
-    	c.fillRect(b=0, y=0, q=640, 480);
-    	
-    	for (; y++ < q;)
-        for (i = 0; i < 6;) {
+
+    	for (y=b=0; y++ < 480;)
+        for (i = 0; i < 5;i++) {
 
             a=b;
-            b=Math.sin((t+y)/q+i*1.57)*100;
-            c.fillStyle = '0ff0f000'.substr(i,3);
+            b=Math.sin((t+y)/480+i*1.57)*99;
+            c.fillStyle = '000ff0f'.substr(i,3);
 
-    		if (i++ < 5 && a < b) 
-                c.fillRect(320+a, y, b-a, 1);
+    		if(a < b || !i) { 
+                c.fillRect(i&&320+a, y, i?b-a:640, 1);
+            }
     	}
-    	t++;
+    	t+=9;
 	}, t=0)
 </script>
